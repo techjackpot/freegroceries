@@ -1,0 +1,99 @@
+<div *ngIf="offer" class="row">
+  <div class="col-md-12">
+    <h2 *ngIf="offer._id">Offer Details</h2>
+    <h2 *ngIf="!offer._id">New Offer</h2>
+  </div>
+</div>
+<div *ngIf="offer" class="row">
+  <form class="col-md-12" name="edit_offer">
+    <div class="form-group">
+      <label for="offer-name">Name</label>
+      <input class="form-control" name="offer-name" [(ngModel)]="offer.name" placeholder="Name"/>
+    </div>
+    <div class="form-group">
+      <label for="offer-url">Url</label>
+      <input class="form-control" name="offer-url" [(ngModel)]="offer.url" placeholder="Url ..."/>
+    </div>
+    <div class="form-group">
+      <label for="offer-img-url">Image Url</label>
+      <input class="form-control" name="offer-img_url" [(ngModel)]="offer.img_url" placeholder="Image Url ..."/>
+    </div>
+    <div class="form-group">
+      <label for="offer-description">Description</label>
+      <textarea class="form-control" name="offer-description" [(ngModel)]="offer.description" placeholder="Description ..."></textarea>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="true" name="offer-checks-check_gender1-use" [(ngModel)]="offer.checks.check_gender1.use">
+            Check Gender1
+          </label>
+        </div>
+      </div>
+      <div class="panel-body" *ngIf="offer.checks.check_gender1.use" >
+        <div class="radio">
+          <label>
+            <input type="radio" name="offer-checks-check_gender1-cond" [(ngModel)]="offer.checks.check_gender1.cond" value="Male">
+            Male
+          </label>
+          <label>
+            <input type="radio" name="offer-checks-check_gender1-cond" [(ngModel)]="offer.checks.check_gender1.cond" value="Female">
+            Female
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="true" name="offer-checks-check_gender2-use" [(ngModel)]="offer.checks.check_gender2.use">
+            Check Gender2
+          </label>
+        </div>
+      </div>
+      <div class="panel-body" *ngIf="offer.checks.check_gender2.use" >
+        <div class="radio">
+          <label>
+            <input type="radio" name="offer-checks-check_gender2-cond" [(ngModel)]="offer.checks.check_gender2.cond" value="M">
+            Male
+          </label>
+          <label>
+            <input type="radio" name="offer-checks-check_gender2-cond" [(ngModel)]="offer.checks.check_gender2.cond" value="F">
+            Female
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="true" name="offer-checks-check_age-use" [(ngModel)]="offer.checks.check_age.use">
+            Check Age
+          </label>
+        </div>
+      </div>
+      <div class="panel-body" *ngIf="offer.checks.check_age.use" >
+        <div class="radio">
+          <label>
+            <input type="radio" name="offer-checks-check_age-cond" [(ngModel)]="offer.checks.check_age.cond" value="M">
+            Less
+          </label>
+          <label>
+            <input type="radio" name="offer-checks-check_age-cond" [(ngModel)]="offer.checks.check_age.cond" value="F">
+            Greater
+          </label>
+          Than
+          <label *ngIf="offer.checks.check_age.cond">
+            <input class="form-control" name="offer-checks-check_age-val" [(ngModel)]="offer.checks.check_age.val" placeholder="Age Limit..."/>
+          </label>
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-primary" *ngIf="!offer._id" (click)="createOffer(offer)">Create</button>
+    <button class="btn btn-info" *ngIf="offer._id" (click)="updateOffer(offer)">Update</button>
+    <button class="btn btn-danger" *ngIf="offer._id" (click)="deleteOffer(offer._id)">Delete</button>
+  </form>
+</div>
