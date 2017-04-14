@@ -76,7 +76,7 @@ export class OfferListComponent implements OnInit {
 
   createNewOffer() {
     var offer: Offer = {
-      name: '',
+      name: 'Unknown',
       url: '',
       img_url: '',
       description: '',
