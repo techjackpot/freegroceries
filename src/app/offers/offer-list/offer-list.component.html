@@ -1,23 +1,25 @@
-<p><a [routerLink]="['/login']">Logout</a></p>
-<div class="row">
-  <div class="col-md-5">
-    <h2>Offers</h2>
-    <ul class="list-group">
-      <li class="list-group-item"
-        *ngFor="let offer of offers"
-        (click)="selectOffer(offer)"
-        [class.active]="offer === selectedOffer">
-        {{offer.name}}
-      </li>
-    </ul>
-    <button class="btn btn-warning" (click)="createNewOffer()">New</button>
-  </div>
-  <div class="col-md-5 col-md-offset-2">
-    <offer-details
-      [offer]="selectedOffer"
-      [createHandler]="addOffer"
-      [updateHandler]="updateOffer"
-      [deleteHandler]="deleteOffer">
-    </offer-details>
+<div class="offers-wrapper">
+  <a [routerLink]="['/login']" class="pull-right btn btn-danger">Logout</a>
+  <div class="row">
+    <div class="col-md-5">
+      <h2>Offers List</h2>
+      <ul class="list-group">
+        <li class="list-group-item"
+          *ngFor="let offer of offers"
+          (click)="selectOffer(offer)"
+          [class.active]="offer === selectedOffer">
+          {{offer.name}}
+        </li>
+      </ul>
+      <button class="btn btn-warning" (click)="createNewOffer()">Create New Offer</button>
+    </div>
+    <div class="col-md-5 col-md-offset-2">
+      <offer-details
+        [offer]="selectedOffer"
+        [createHandler]="addOffer"
+        [updateHandler]="updateOffer"
+        [deleteHandler]="deleteOffer">
+      </offer-details>
+    </div>
   </div>
 </div>
