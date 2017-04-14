@@ -111,3 +111,13 @@ app.delete("/api/offers/:id", function(req, res) {
     }
   });
 });
+
+app.post("/api/authenticate", function(req,res) {
+  var login = req.body;
+  console.log(login);
+  if(login.username == 'admin' && login.password == 'admin2017' ) {
+    res.status(200).json({token: 'authenticated'});
+  } else {
+    res.status(200).json({invalid: 'true'});
+  }
+});
