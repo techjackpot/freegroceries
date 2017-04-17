@@ -78,11 +78,11 @@
       <div class="panel-body" *ngIf="offer.checks.check_age.use" >
         <div class="radio">
           <label>
-            <input type="radio" name="offer-checks-check_age-cond" [(ngModel)]="offer.checks.check_age.cond" value="M">
+            <input type="radio" name="offer-checks-check_age-cond" [(ngModel)]="offer.checks.check_age.cond" value="less">
             Less
           </label>
           <label>
-            <input type="radio" name="offer-checks-check_age-cond" [(ngModel)]="offer.checks.check_age.cond" value="F">
+            <input type="radio" name="offer-checks-check_age-cond" [(ngModel)]="offer.checks.check_age.cond" value="greater">
             Greater
           </label>
           Than

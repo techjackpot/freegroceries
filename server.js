@@ -41,6 +41,14 @@ function handleError(res, reason, message, code) {
   res.status(code || 500).json({"error": message});
 }
 
+
+/* CORS */
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 /*  "/api/offers"
  *    GET: finds all offers
  *    POST: creates a new offer
