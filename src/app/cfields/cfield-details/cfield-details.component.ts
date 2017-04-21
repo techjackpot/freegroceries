@@ -10,7 +10,8 @@ import { CfieldService } from '../cfield.service';
 })
 
 export class CfieldDetailsComponent {
-  types =  [ { value:'', label: '' }, { value:'radio', label:'Radio' }, { value:'check', label:'Check Box' } ]
+
+  types =  [ { value:'', label: '' }, { value:'radio', label:'Radio' }, { value:'checkbox', label:'Check Box' }, { value:'select', label:'Select' } ]
 
   @Input()
   cfield: Cfield;
@@ -23,6 +24,15 @@ export class CfieldDetailsComponent {
   deleteHandler: Function;
 
   constructor (private cfieldService: CfieldService) {}
+
+  addCFValue() {
+    const value = { value:'', label:'' };
+    this.cfield.values.push(value);
+  }
+
+  removeCFValue(i: number) {
+    this.cfield.values.splice(i,1);
+  }
 
   createCfield(cfield: Cfield) {
     this.cfieldService.createCfield(cfield).then((newCfield: Cfield) => {

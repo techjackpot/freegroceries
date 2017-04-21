@@ -13,7 +13,7 @@ const routes: Routes = [
     { path: 'cfields', component: CfieldListComponent, canActivate: [AuthGuard] },
     //{ path: '', redirectTo: '/offers', pathMatch: 'full', canActivate: [AuthGuard] },
     // otherwise redirect to home
-    { path: '**', redirectTo: 'offers' }
+    { path: '**', redirectTo: 'cfields' }
 ];
 
 @NgModule({
