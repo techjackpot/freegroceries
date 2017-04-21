@@ -5,13 +5,14 @@ import { AuthenticationService } from './_services/authentication.service';
 
 import { LoginComponent } from './login/login.component';
 import { OfferListComponent } from './offers/offer-list/offer-list.component';
+import { CfieldListComponent } from './cfields/cfield-list/cfield-list.component';
 
 const routes: Routes = [
     { path: 'login', component: LoginComponent },
-    { path: '', component: OfferListComponent, canActivate: [AuthGuard] },
-
+    { path: 'offers', component: OfferListComponent, canActivate: [AuthGuard] },
+    { path: 'cfields', component: CfieldListComponent, canActivate: [AuthGuard] },
     // otherwise redirect to home
-    { path: '**', redirectTo: '' }
+    { path: '**', redirectTo: 'offers' }
 ];
 
 @NgModule({

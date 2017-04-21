@@ -7,18 +7,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { OfferDetailsComponent } from './offers/offer-details/offer-details.component';
 import { OfferListComponent } from './offers/offer-list/offer-list.component';
-import { LoginComponent } from './login/login.component';
-import { CfieldListComponent } from './cfields/cfield-list/cfield-list.component';
 import { CfieldDetailsComponent } from './cfields/cfield-details/cfield-details.component';
+import { CfieldListComponent } from './cfields/cfield-list/cfield-list.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     OfferDetailsComponent,
     OfferListComponent,
-    LoginComponent,
+    CfieldDetailsComponent,
     CfieldListComponent,
-    CfieldDetailsComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,

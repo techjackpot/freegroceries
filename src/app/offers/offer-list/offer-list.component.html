@@ -1,5 +1,9 @@
 <div class="offers-wrapper">
-  <a [routerLink]="['/login']" class="pull-right btn btn-danger">Logout</a>
+  <div class="row navigation">
+    <a [routerLink]="['/offers']" class="pull-left btn btn-primary">Offers List</a>
+    <a [routerLink]="['/cfields']" class="pull-left btn btn-primary">Custom Fields List</a>
+    <a [routerLink]="['/login']" class="pull-right btn btn-danger">Logout</a>
+  </div>
   <div class="row">
     <div class="col-md-5">
       <h2>Offers List</h2>

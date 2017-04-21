@@ -1,3 +1,29 @@
-<p>
-  cfield-list works!
-</p>
+<div class="cfields-wrapper">
+  <div class="row navigation">
+    <a [routerLink]="['/offers']" class="pull-left btn btn-primary">Offers List</a>
+    <a [routerLink]="['/cfields']" class="pull-left btn btn-primary">Custom Fields List</a>
+    <a [routerLink]="['/login']" class="pull-right btn btn-danger">Logout</a>
+  </div>
+  <div class="row">
+    <div class="col-md-5">
+      <h2>Custom Fields List</h2>
+      <ul class="list-group">
+        <li class="list-group-item"
+          *ngFor="let cfield of cfields"
+          (click)="selectCfield(cfield)"
+          [class.active]="cfield === selectedCfield">
+          {{cfield.name}}
+        </li>
+      </ul>
+      <button class="btn btn-warning" (click)="createNewCfield()">Create New Custom Field</button>
+    </div>
+    <div class="col-md-5 col-md-offset-2">
+      <cfield-details
+        [cfield]="selectedCfield"
+        [createHandler]="addCfield"
+        [updateHandler]="updateCfield"
+        [deleteHandler]="deleteCfield">
+      </cfield-details>
+    </div>
+  </div>
+</div>

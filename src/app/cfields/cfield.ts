@@ -5,8 +5,8 @@ export class Cfield {
 	cf_type: string;
 	cf_value: [
 		{
-			v_id: string;
-			v_val: string;
+			v_value: string;
+			v_label: string;
 		}
 	]
 }
