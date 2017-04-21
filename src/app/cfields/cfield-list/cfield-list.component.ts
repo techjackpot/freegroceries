@@ -40,13 +40,13 @@ export class CfieldListComponent implements OnInit {
 
   createNewCfield() {
     var cfield: Cfield = {
-      cf_id: 'id_',
-      cf_name: '',
-      cf_type: '',
-      cf_value: [
+      name: 'Custom Field _',
+      description: '',
+      type: '',
+      values: [
         {
-          v_value: '',
-          v_label: ''
+          value: '',
+          label: ''
         }
       ]
     };

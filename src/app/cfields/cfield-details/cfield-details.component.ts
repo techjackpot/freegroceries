@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+//import { NgForm } from '@angular/forms';
 import { Cfield } from '../cfield';
 import { CfieldService } from '../cfield.service';
 
@@ -9,6 +10,8 @@ import { CfieldService } from '../cfield.service';
 })
 
 export class CfieldDetailsComponent {
+  types =  [ { value:'', label: '' }, { value:'radio', label:'Radio' }, { value:'check', label:'Check Box' } ]
+
   @Input()
   cfield: Cfield;
 
