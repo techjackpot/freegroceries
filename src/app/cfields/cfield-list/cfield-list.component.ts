@@ -21,9 +21,10 @@ export class CfieldListComponent implements OnInit {
      this.cfieldService
       .getCfields()
       .then((cfields: Cfield[]) => {
-        this.cfields = cfields.map((cfield) => {
-          return cfield;
-        });
+        //this.cfields = cfields.map((cfield) => {
+          //return cfield;
+        //});
+        this.cfields = cfields;
       });
   }
 

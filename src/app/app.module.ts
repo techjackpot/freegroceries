@@ -10,6 +10,7 @@ import { OfferListComponent } from './offers/offer-list/offer-list.component';
 import { CfieldDetailsComponent } from './cfields/cfield-details/cfield-details.component';
 import { CfieldListComponent } from './cfields/cfield-list/cfield-list.component';
 import { LoginComponent } from './login/login.component';
+import { NavigationComponent } from './navigation/navigation.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { LoginComponent } from './login/login.component';
     OfferListComponent,
     CfieldDetailsComponent,
     CfieldListComponent,
-    LoginComponent
+    LoginComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
