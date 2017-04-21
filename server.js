@@ -4,6 +4,7 @@ var mongodb = require("mongodb");
 var ObjectID = mongodb.ObjectID;
 
 var OFFERS_COLLECTION = "offers";
+var CFIELDS_COLLECTION = "cfields";
 
 var app = express();
 app.use(bodyParser.json());
@@ -16,7 +17,7 @@ app.use(express.static(distDir));
 var db;
 
 // Connect to the database before starting the application server.
-mongodb.MongoClient.connect('mongodb://localhost:27017/offers', function (err, database) {
+mongodb.MongoClient.connect('mongodb://localhost:27017/freegroceries', function (err, database) {
   if (err) {
     console.log(err);
     process.exit(1);
@@ -120,6 +121,78 @@ app.delete("/api/offers/:id", function(req, res) {
   });
 });
 
+/*  "/api/cfields"
+ *    GET: finds all cfields
+ *    POST: creates a new cfield
+ */
+
+app.get("/api/cfields", function(req, res) {
+  db.collection(CFIELDS_COLLECTION).find({}).toArray(function(err, docs) {
+    if (err) {
+      handleError(res, err.message, "Failed to get custom fields.");
+    } else {
+      res.status(200).json(docs);
+    }
+  });
+});
+
+app.post("/api/cfields", function(req, res) {
+  var newCfield = req.body;
+
+  if (!req.body.name) {
+    handleError(res, "Invalid user input", "Must provide a name.", 400);
+  }
+
+  db.collection(CFIELDS_COLLECTION).insertOne(newCfield, function(err, doc) {
+    if (err) {
+      handleError(res, err.message, "Failed to create new custom field.");
+    } else {
+      res.status(201).json(doc.ops[0]);
+    }
+  });
+});
+
+/*  "/api/cfields/:id"
+ *    GET: find cfield by id
+ *    PUT: update cfield by id
+ *    DELETE: deletes cfield by id
+ */
+
+app.get("/api/cfields/:id", function(req, res) {
+  db.collection(CFIELDS_COLLECTION).findOne({ _id: new ObjectID(req.params.id) }, function(err, doc) {
+    if (err) {
+      handleError(res, err.message, "Failed to get custom field");
+    } else {
+      res.status(200).json(doc);
+    }
+  });
+});
+
+app.put("/api/cfields/:id", function(req, res) {
+  var updateDoc = req.body;
+  delete updateDoc._id;
+
+  db.collection(CFIELDS_COLLECTION).updateOne({_id: new ObjectID(req.params.id)}, updateDoc, function(err, doc) {
+    if (err) {
+      handleError(res, err.message, "Failed to update custom field");
+    } else {
+      updateDoc._id = req.params.id;
+      res.status(200).json(updateDoc);
+    }
+  });
+});
+
+app.delete("/api/cfields/:id", function(req, res) {
+  db.collection(CFIELDS_COLLECTION).deleteOne({_id: new ObjectID(req.params.id)}, function(err, result) {
+    if (err) {
+      handleError(res, err.message, "Failed to delete custom field");
+    } else {
+      res.status(200).json(req.params.id);
+    }
+  });
+});
+
+/* api for authenticate admin */
 app.post("/api/authenticate", function(req,res) {
   var login = req.body;
   if(login.username == 'admin' && login.password == 'admin2017' ) {
