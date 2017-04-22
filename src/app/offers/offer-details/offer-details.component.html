@@ -22,73 +22,92 @@
       <label for="offer-description">Description</label>
       <textarea class="form-control" name="offer-description" [(ngModel)]="offer.description" placeholder="Description ..."></textarea>
     </div>
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" value="true" name="offer-checks-check_gender1-use" [(ngModel)]="offer.checks.check_gender1.use">
-            Check Gender1
-          </label>
+    <div class="form-group">
+      <label>Checks</label>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" value="true" name="offer-checks-check_gender1-use" [(ngModel)]="offer.checks.check_gender1.use">
+              Check Gender1
+            </label>
+          </div>
+        </div>
+        <div class="panel-body" *ngIf="offer.checks.check_gender1.use" >
+          <div class="radio">
+            <label>
+              <input type="radio" name="offer-checks-check_gender1-cond" [(ngModel)]="offer.checks.check_gender1.cond" value="Male">
+              Male
+            </label>
+            <label>
+              <input type="radio" name="offer-checks-check_gender1-cond" [(ngModel)]="offer.checks.check_gender1.cond" value="Female">
+              Female
+            </label>
+          </div>
         </div>
       </div>
-      <div class="panel-body" *ngIf="offer.checks.check_gender1.use" >
-        <div class="radio">
-          <label>
-            <input type="radio" name="offer-checks-check_gender1-cond" [(ngModel)]="offer.checks.check_gender1.cond" value="Male">
-            Male
-          </label>
-          <label>
-            <input type="radio" name="offer-checks-check_gender1-cond" [(ngModel)]="offer.checks.check_gender1.cond" value="Female">
-            Female
-          </label>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" value="true" name="offer-checks-check_gender2-use" [(ngModel)]="offer.checks.check_gender2.use">
+              Check Gender2
+            </label>
+          </div>
+        </div>
+        <div class="panel-body" *ngIf="offer.checks.check_gender2.use" >
+          <div class="radio">
+            <label>
+              <input type="radio" name="offer-checks-check_gender2-cond" [(ngModel)]="offer.checks.check_gender2.cond" value="M">
+              M
+            </label>
+            <label>
+              <input type="radio" name="offer-checks-check_gender2-cond" [(ngModel)]="offer.checks.check_gender2.cond" value="F">
+              F
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" value="true" name="offer-checks-check_age-use" [(ngModel)]="offer.checks.check_age.use">
+              Check Age
+            </label>
+          </div>
+        </div>
+        <div class="panel-body" *ngIf="offer.checks.check_age.use" >
+          <div class="radio">
+            <label>
+              <input type="radio" name="offer-checks-check_age-cond" [(ngModel)]="offer.checks.check_age.cond" value="less">
+              Less
+            </label>
+            <label>
+              <input type="radio" name="offer-checks-check_age-cond" [(ngModel)]="offer.checks.check_age.cond" value="greater">
+              Greater
+            </label>
+            Than
+            <label *ngIf="offer.checks.check_age.cond">
+              <input class="form-control" name="offer-checks-check_age-val" [(ngModel)]="offer.checks.check_age.val" placeholder="Age Limit..."/>
+            </label>
+          </div>
         </div>
       </div>
     </div>
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" value="true" name="offer-checks-check_gender2-use" [(ngModel)]="offer.checks.check_gender2.use">
-            Check Gender2
-          </label>
+    <div class="form-group">
+      <label>Custom Fields</label>
+      <div *ngFor="let cfield of cfields; let i=index" class="panel panel-default">
+        <div class="panel-heading">
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" value="true" name="offer-cfields-cfield{{i}}-use" [(ngModel)]="offer.cfields[i].use" />
+              {{cfield.name}}
+            </label>
+          </div>
         </div>
-      </div>
-      <div class="panel-body" *ngIf="offer.checks.check_gender2.use" >
-        <div class="radio">
-          <label>
-            <input type="radio" name="offer-checks-check_gender2-cond" [(ngModel)]="offer.checks.check_gender2.cond" value="M">
-            M
-          </label>
-          <label>
-            <input type="radio" name="offer-checks-check_gender2-cond" [(ngModel)]="offer.checks.check_gender2.cond" value="F">
-            F
-          </label>
-        </div>
-      </div>
-    </div>
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" value="true" name="offer-checks-check_age-use" [(ngModel)]="offer.checks.check_age.use">
-            Check Age
-          </label>
-        </div>
-      </div>
-      <div class="panel-body" *ngIf="offer.checks.check_age.use" >
-        <div class="radio">
-          <label>
-            <input type="radio" name="offer-checks-check_age-cond" [(ngModel)]="offer.checks.check_age.cond" value="less">
-            Less
-          </label>
-          <label>
-            <input type="radio" name="offer-checks-check_age-cond" [(ngModel)]="offer.checks.check_age.cond" value="greater">
-            Greater
-          </label>
-          Than
-          <label *ngIf="offer.checks.check_age.cond">
-            <input class="form-control" name="offer-checks-check_age-val" [(ngModel)]="offer.checks.check_age.val" placeholder="Age Limit..."/>
-          </label>
+        <div class="panel-body" *ngIf="cfield.description">
+          {{cfield.description}}
         </div>
       </div>
     </div>

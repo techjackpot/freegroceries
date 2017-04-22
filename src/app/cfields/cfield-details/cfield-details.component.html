@@ -21,7 +21,7 @@
       </select>
     </div>
     <div class="form-group values-group" *ngIf="cfield.type">
-      <label for="cfield-description">Values</label>
+      <label>Values</label>
       <div *ngFor="let value of cfield.values; let i=index" class="panel panel-default">
         <div class="panel-heading">
           <span>Value {{i + 1}}</span>
@@ -29,12 +29,10 @@
         </div>
         <div class="panel-body">
           <div class="form-group col-xs-6">
-              <label>Value</label>
-              <input type="text" class="form-control" name="cfield-values{{i}}-value" [(ngModel)]="cfield.values[i].value" />
+              <input type="text" class="form-control" name="cfield-values{{i}}-value" [(ngModel)]="cfield.values[i].value" placeholder="Value..." />
           </div>
           <div class="form-group col-xs-6">
-              <label>Label</label>
-              <input type="text" class="form-control" name="cfield-values{{i}}-label" [(ngModel)]="cfield.values[i].label" />
+              <input type="text" class="form-control" name="cfield-values{{i}}-label" [(ngModel)]="cfield.values[i].label" placeholder="Label..." />
           </div>
         </div>
       </div>

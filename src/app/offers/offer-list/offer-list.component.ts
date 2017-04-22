@@ -1,21 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { Offer } from '../offer';
+import { Cfield } from '../../cfields/cfield';
 import { OfferService } from '../offer.service';
+import { CfieldService } from '../../cfields/cfield.service';
 import { OfferDetailsComponent } from '../offer-details/offer-details.component';
 
 @Component({
   selector: 'offer-list',
   templateUrl: './offer-list.component.html',
   styleUrls: ['./offer-list.component.css'],
-  providers: [OfferService]
+  providers: [OfferService, CfieldService]
 })
 
 export class OfferListComponent implements OnInit {
 
   offers: Offer[]
+  cfields: Cfield[]
   selectedOffer: Offer
 
-  constructor(private offerService: OfferService) { }
+  constructor(private offerService: OfferService, private cfieldService: CfieldService) { }
 
   ngOnInit() {
      this.offerService
@@ -62,6 +65,13 @@ export class OfferListComponent implements OnInit {
           return offer;
         });
       });
+    this.cfieldService
+      .getCfields()
+      .then((cfields: Cfield[]) => {
+        this.cfields = cfields.map((cfield) => {
+          return cfield;
+        })
+      });
   }
 
   private getIndexOfOffer = (offerId: String) => {
@@ -76,7 +86,7 @@ export class OfferListComponent implements OnInit {
 
   createNewOffer() {
     var offer: Offer = {
-      name: 'Unknown',
+      name: 'New Offer _',
       url: '',
       img_url: '',
       description: '',
@@ -94,9 +104,14 @@ export class OfferListComponent implements OnInit {
           cond: '',
           val: 0
         }
-      }
+      },
+      cfields: []
     };
+    this.cfields.forEach((cfield) => {
+      offer.cfields.push({ cfield_id:cfield._id, use:false});
+    });
 
+    //console.log(offer);
     // By default, a newly-created offer will have the selected state.
     this.selectOffer(offer);
   }

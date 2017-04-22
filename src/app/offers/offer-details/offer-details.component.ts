@@ -1,6 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Offer } from '../offer';
+import { Cfield } from '../../cfields/cfield';
 import { OfferService } from '../offer.service';
+import { CfieldService } from '../../cfields/cfield.service';
 
 @Component({
   selector: 'offer-details',
@@ -9,6 +11,7 @@ import { OfferService } from '../offer.service';
 })
 
 export class OfferDetailsComponent {
+  cfields: Cfield[]
   @Input()
   offer: Offer;
 
@@ -19,7 +22,25 @@ export class OfferDetailsComponent {
   @Input()
   deleteHandler: Function;
 
-  constructor (private offerService: OfferService) {}
+
+
+  constructor (private offerService: OfferService, private cfieldService: CfieldService) {}
+
+  ngOnInit() {
+    this.cfieldService
+      .getCfields()
+      .then((cfields: Cfield[]) => {
+        this.cfields = cfields.map((cfield) => {
+          return cfield;
+        })
+      });
+  }
+
+  private getIndexOfCfield = (cfieldId: String) => {
+    return this.cfields.findIndex((cfield) => {
+      return cfield._id === cfieldId;
+    });
+  }
 
   createOffer(offer: Offer) {
     this.offerService.createOffer(offer).then((newOffer: Offer) => {
