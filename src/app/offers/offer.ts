@@ -21,5 +21,5 @@ export class Offer {
   		val: number;
   	}
   };
-  cfields: Array<{ cfield_id: string; use:boolean;}>;
+  cfields: Array<{ cfield_id: string; use: boolean; }>;
 }

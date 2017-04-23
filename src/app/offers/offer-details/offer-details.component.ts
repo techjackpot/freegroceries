@@ -36,10 +36,14 @@ export class OfferDetailsComponent {
       });
   }
 
-  private getIndexOfCfield = (cfieldId: String) => {
-    return this.cfields.findIndex((cfield) => {
-      return cfield._id === cfieldId;
+  getIndexOfCfields(cfields,cfield_id) {
+    let index = 0;
+    cfields.forEach((cfield, i) => {
+      if(cfield.cfield_id == cfield_id) {
+        index = i;
+      }
     });
+    return index;
   }
 
   createOffer(offer: Offer) {

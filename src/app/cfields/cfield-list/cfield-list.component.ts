@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Cfield } from '../cfield';
 import { CfieldService } from '../cfield.service';
+import { OfferService } from '../../offers/offer.service';
 import { CfieldDetailsComponent } from '../cfield-details/cfield-details.component';
 
 @Component({
   selector: 'cfield-list',
   templateUrl: './cfield-list.component.html',
   styleUrls: ['./cfield-list.component.css'],
-  providers: [CfieldService]
+  providers: [CfieldService,OfferService]
 })
 
 export class CfieldListComponent implements OnInit {

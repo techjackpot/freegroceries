@@ -101,7 +101,7 @@
         <div class="panel-heading">
           <div class="checkbox">
             <label>
-              <input type="checkbox" value="true" name="offer-cfields-cfield{{i}}-use" [(ngModel)]="offer.cfields[i].use" />
+              <input type="checkbox" value="true" name="offer-cfields-cfield{{i}}-use" [(ngModel)]="offer.cfields[getIndexOfCfields(offer.cfields,cfield._id)].use" />
               {{cfield.name}}
             </label>
           </div>

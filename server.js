@@ -1,6 +1,7 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var mongodb = require("mongodb");
+var path = require('path');
 var ObjectID = mongodb.ObjectID;
 
 var OFFERS_COLLECTION = "offers";
@@ -200,4 +201,10 @@ app.post("/api/authenticate", function(req,res) {
   } else {
     res.status(200).json({invalid: 'true'});
   }
+});
+
+
+/* angular route */
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist/index.html'));
 });

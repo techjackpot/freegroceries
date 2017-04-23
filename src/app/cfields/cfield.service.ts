@@ -26,6 +26,12 @@ export class CfieldService {
     }
 
     // get("/api/cfields/:id") endpoint not used by Angular app
+    getCfield(getCfieldId: String): Promise<Cfield> {
+      return this.http.get(this.cfieldsUrl + '/:' + getCfieldId)
+                 .toPromise()
+                 .then(response => response.json() as Cfield)
+                 .catch(this.handleError);
+    }
 
     // delete("/api/cfields/:id")
     deleteCfield(delCfieldId: String): Promise<String> {
