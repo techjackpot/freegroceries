@@ -28,7 +28,7 @@ export class CfieldDetailsComponent {
   constructor (private cfieldService: CfieldService, private offerService: OfferService) {}
 
   addCFValue() {
-    const value = { value:'', label:'' };
+    const value = { value: '' };
     this.cfield.values.push(value);
   }
 

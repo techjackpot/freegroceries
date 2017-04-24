@@ -44,11 +44,9 @@ export class CfieldListComponent implements OnInit {
       name: 'Custom Field _',
       description: '',
       type: '',
+      key: '',
       values: [
-        {
-          value: '',
-          label: ''
-        }
+        { value: ''}
       ]
     };
 
