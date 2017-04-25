@@ -19,5 +19,16 @@ export class Offer {
   		val: number;
   	}
   };
+  preqst: {
+    type: string;
+    key: string;
+    description: string;
+    primaryValue: string;
+    values: [
+      {
+        value: string;
+      }
+    ]
+  };
   cfields: Array<{cfield_id: string;use: boolean;}>;
 }

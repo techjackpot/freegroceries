@@ -62,6 +62,15 @@ export class OfferListComponent implements OnInit {
           	  }
           	}
           }
+          if (!offer.preqst) {
+            offer.preqst = {
+              description: '',
+              type: '',
+              key: '',
+              primaryValue: '',
+              values: [ { value: '' }]
+            };
+          }
           return offer;
         });
       });
@@ -104,6 +113,15 @@ export class OfferListComponent implements OnInit {
           cond: '',
           val: 0
         }
+      },
+      preqst: {
+        type: '',
+        key: '',
+        description: '',
+        primaryValue: '',
+        values: [
+          { value: '' }
+        ]
       },
       cfields: []
     };

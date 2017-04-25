@@ -11,7 +11,6 @@ const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'offers', component: OfferListComponent, canActivate: [AuthGuard] },
     { path: 'cfields', component: CfieldListComponent, canActivate: [AuthGuard] },
-    //{ path: '', redirectTo: '/offers', pathMatch: 'full', canActivate: [AuthGuard] },
     // otherwise redirect to home
     { path: '**', redirectTo: 'offers' }
 ];

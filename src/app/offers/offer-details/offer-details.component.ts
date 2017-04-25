@@ -12,6 +12,9 @@ import { CfieldService } from '../../cfields/cfield.service';
 
 export class OfferDetailsComponent {
   cfields: Cfield[]
+
+  types =  [ { value:'', label: '' }, { value:'radio', label:'Radio' }, { value:'select', label:'Drop Down' } ]
+
   @Input()
   offer: Offer;
 
@@ -34,6 +37,15 @@ export class OfferDetailsComponent {
           return cfield;
         })
       });
+  }
+
+  addPreQstValue() {
+    const value = { value: '' };
+    this.offer.preqst.values.push(value);
+  }
+
+  removePreQstValue(i: number) {
+    this.offer.preqst.values.splice(i,1);
   }
 
   getIndexOfCfields(cfields,cfield_id) {
