@@ -30,7 +30,15 @@
           <div class="form-group">
             <label>Value {{i + 1}} <span class="glyphicon glyphicon-remove" *ngIf="cfield.values.length > 1" (click)="removeCFValue(i)"></span>
             </label>
-            <input type="text" class="form-control" name="cfield-values{{i}}-value" [(ngModel)]="cfield.values[i].value" placeholder="Value ..." />
+            <div class="clearfix"></div>
+            <div class="row">
+              <div class="col-xs-5">
+                <input type="text" class="form-control" name="cfield-values{{i}}-value" [(ngModel)]="cfield.values[i].value" placeholder="Value ..." />
+              </div>
+              <div class="col-xs-7">
+                <input type="text" class="form-control" name="cfield-values{{i}}-label" [(ngModel)]="cfield.values[i].label" placeholder="Label ..." />
+              </div>
+            </div>
           </div>
         </div>
       </div>

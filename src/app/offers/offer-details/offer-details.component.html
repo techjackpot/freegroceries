@@ -119,11 +119,19 @@
               <label>Value {{i + 1}}
                 <span class="glyphicon glyphicon-remove" *ngIf="offer.preqst.values.length > 1" (click)="removePreQstValue(i)"></span>
               </label>
-              <div class="input-group">
-                <span class="input-group-addon">
-                  <input type="radio" aria-label="..." name="offer-preqst-primaryValue" [(ngModel)]="offer.preqst.primaryValue" [value]="offer.preqst.values[i].value">
-                </span>
-                <input type="text" class="form-control" name="offer-preqst-values{{i}}-value" aria-label="..." [(ngModel)]="offer.preqst.values[i].value" placeholder="Value ..." />
+              <div class="clearfix"></div>
+              <div class="row">
+                <div class="col-xs-5">
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                      <input type="radio" aria-label="..." name="offer-preqst-primaryValue" [(ngModel)]="offer.preqst.primaryValue" [value]="offer.preqst.values[i].value">
+                    </span>
+                    <input type="text" class="form-control" name="offer-preqst-values{{i}}-value" aria-label="..." [(ngModel)]="offer.preqst.values[i].value" placeholder="Value ..." />
+                  </div>
+                </div>
+                <div class="col-xs-7">
+                  <input type="text" class="form-control" name="offer-preqst-values{{i}}-label" aria-label="..." [(ngModel)]="offer.preqst.values[i].label" placeholder="Label ..." />
+                </div>
               </div>
             </div>
           </div>

@@ -68,7 +68,7 @@ export class OfferListComponent implements OnInit {
               type: '',
               key: '',
               primaryValue: '',
-              values: [ { value: '' }]
+              values: [ { value: '', label: '' }]
             };
           }
           return offer;
@@ -120,7 +120,7 @@ export class OfferListComponent implements OnInit {
         description: '',
         primaryValue: '',
         values: [
-          { value: '' }
+          { value: '', label: '' }
         ]
       },
       cfields: []

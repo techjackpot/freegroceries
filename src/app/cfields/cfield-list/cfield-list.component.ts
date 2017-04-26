@@ -46,7 +46,7 @@ export class CfieldListComponent implements OnInit {
       type: '',
       key: '',
       values: [
-        { value: ''}
+        { value: '', label: '' }
       ]
     };
 

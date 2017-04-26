@@ -40,7 +40,7 @@ export class OfferDetailsComponent {
   }
 
   addPreQstValue() {
-    const value = { value: '' };
+    const value = { value: '', label: '' };
     this.offer.preqst.values.push(value);
   }
 
