@@ -13,7 +13,7 @@ import { OfferService } from '../../offers/offer.service';
 
 export class CfieldDetailsComponent {
 
-  types =  [ { value:'', label: '' }, { value:'radio', label:'Radio' }, { value:'checkbox', label:'Check Box' }, { value:'select', label:'Select' } ]
+  types =  [ { value:'', label: '' }, { value:'radio', label:'Radio' }, { value:'checkbox', label:'Check Box' }, { value:'select', label:'Select' }, { value:'hidden', label:'Hidden' }, { value:'text', label: 'TextBox' } ]
 
   @Input()
   cfield: Cfield;

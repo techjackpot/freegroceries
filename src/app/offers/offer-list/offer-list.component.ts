@@ -37,8 +37,8 @@ export class OfferListComponent implements OnInit {
               },
               check_age: {
                 use: false,
-                cond: '',
-                val: 0
+                low: null,
+                high: null
               }
             }
           } else {
@@ -57,8 +57,8 @@ export class OfferListComponent implements OnInit {
           	if (!offer.checks.check_age) {
           	  offer.checks.check_age = {
           	    use: false,
-          	    cond: '',
-          	    val: 0
+                low: null,
+                high: null
           	  }
           	}
           }
@@ -110,8 +110,8 @@ export class OfferListComponent implements OnInit {
         },
         check_age: {
           use: false,
-          cond: '',
-          val: 0
+          low: null,
+          high: null
         }
       },
       preqst: {

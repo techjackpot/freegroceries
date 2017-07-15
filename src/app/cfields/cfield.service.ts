@@ -5,7 +5,8 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class CfieldService {
-    private cfieldsUrl = '/api/cfields';
+    //private cfieldsUrl = '/api/cfields';
+    private cfieldsUrl = 'http://localhost:8080/api/cfields';
 
     constructor (private http: Http) {}
 

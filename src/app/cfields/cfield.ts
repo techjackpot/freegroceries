@@ -4,6 +4,7 @@ export class Cfield {
 	description: string;
 	type: string;
 	key: string;
+	defaultValue: string;
 	values: [
 		{
 			value: string;

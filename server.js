@@ -6,9 +6,11 @@ var ObjectID = mongodb.ObjectID;
 
 var OFFERS_COLLECTION = "offers";
 var CFIELDS_COLLECTION = "cfields";
+//const cors = require('cors');
 
 var app = express();
 app.use(bodyParser.json());
+//app.use(cors());
 
 // Create link to Angular build directory
 var distDir = __dirname + "/dist/";
@@ -48,6 +50,7 @@ function handleError(res, reason, message, code) {
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header("Access-Control-Request-Methods", "*");
   next();
 });
 

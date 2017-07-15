@@ -78,7 +78,7 @@
           </div>
         </div>
         <div class="panel-body" *ngIf="offer.checks.check_age.use" >
-          <div class="radio">
+          <!--<div class="radio">
             <label>
               <input type="radio" name="offer-checks-check_age-cond" [(ngModel)]="offer.checks.check_age.cond" value="less">
               Less
@@ -91,6 +91,10 @@
             <label *ngIf="offer.checks.check_age.cond">
               <input class="form-control" name="offer-checks-check_age-val" [(ngModel)]="offer.checks.check_age.val" placeholder="Age Limit..."/>
             </label>
+          </div>-->
+          <div class="radio">
+            <label>Greater Than <input type="number" name="offer-checks-check_age-low" [(ngModel)]="offer.checks.check_age.low"></label>
+            <label>Less Than <input type="number" name="offer-checks-check_age-high" [(ngModel)]="offer.checks.check_age.high"></label>
           </div>
         </div>
       </div>
