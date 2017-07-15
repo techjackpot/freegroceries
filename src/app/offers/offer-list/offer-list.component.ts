@@ -71,6 +71,9 @@ export class OfferListComponent implements OnInit {
               values: [ { value: '', label: '' }]
             };
           }
+          if (!offer.presets) {
+            offer.presets = [];
+          }
           return offer;
         });
       });
@@ -123,6 +126,7 @@ export class OfferListComponent implements OnInit {
           { value: '', label: '' }
         ]
       },
+      presets: [],
       cfields: []
     };
     this.cfields.forEach((cfield) => {

@@ -15,6 +15,20 @@ export class OfferDetailsComponent {
 
   types =  [ { value:'', label: '' }, { value:'radio', label:'Radio' }, { value:'select', label:'Drop Down' } ]
 
+  preset_types = [
+    { value: 'name_first', label: 'First Name' },
+    { value: 'name_last', label: 'Last Name' },
+    { value: 'email', label: 'Email' },
+    { value: 'custom telephone number', label: 'Phone' },
+    { value: 'custom street address', label: 'Street Address' },
+    { value: 'custom city or suburb', label: 'City or Suburb' },
+    { value: 'custom state', label: 'State' },
+    { value: 'custom postcode', label: 'Postcode' },
+    { value: 'custom list selection', label: 'Birth Year' },
+    { value: 'dob', label: 'Date of birth' },
+    { value: 'custom gender', label: 'Gender' }
+  ]
+
   @Input()
   offer: Offer;
 
@@ -46,6 +60,15 @@ export class OfferDetailsComponent {
 
   removePreQstValue(i: number) {
     this.offer.preqst.values.splice(i,1);
+  }
+
+  addPresetValue() {
+    const value = { source: '', target: '' };
+    this.offer.presets.push(value);
+  }
+
+  removePresetValue(i: number) {
+    this.offer.presets.splice(i,1);
   }
 
   getIndexOfCfields(cfields,cfield_id) {

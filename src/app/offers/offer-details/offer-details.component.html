@@ -151,6 +151,41 @@
     </div>
 
     <div class="form-group">
+      <label class="text-danger">Pre-defined Fields --- Match Rules</label>
+      <div *ngFor="let preset of offer.presets; let i=index" class="panel panel-default">
+        <div class="panel-heading">
+          <label>Preset {{i + 1}}
+            <span class="glyphicon glyphicon-remove" *ngIf="offer.presets.length > 1" (click)="removePresetValue(i)"></span>
+          </label>
+        </div>
+        <div class="panel-body">
+          <div class="form-group">
+            <div class="row">
+              <div class="col-xs-6">
+                <!--<input type="text" class="form-control" name="offer-preset-source{{i}}-value" aria-label="..." [(ngModel)]="preset.source" placeholder="Source ..." />-->
+                <label class="sr-only">Source</label>
+                <select name="offer-preset-source{{i}}-value" [(ngModel)]="preset.source" class="form-control">
+                  <option *ngFor="let preset_type of preset_types" [ngValue]="preset_type.value">{{preset_type.label}}</option>
+                </select>
+              </div>
+              <div class="col-xs-6">
+                <label class="sr-only">Target</label>
+                <input type="text" class="form-control" name="offer-preset-target{{i}}-label" aria-label="..." [(ngModel)]="preset.target" placeholder="Target ..." />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+      <div class="form-group">
+        <br/>
+        <a (click)="addPresetValue()">
+          Add another Value +
+        </a>
+      </div>
+    </div>
+
+    <div class="form-group">
       <label class="text-danger">Custom Fields</label>
       <div *ngFor="let cfield of cfields; let i=index" class="panel panel-default">
         <div class="panel-heading">
