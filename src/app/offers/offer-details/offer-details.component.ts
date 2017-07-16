@@ -26,7 +26,9 @@ export class OfferDetailsComponent {
     { value: 'custom postcode', label: 'Postcode' },
     { value: 'custom list selection', label: 'Birth Year' },
     { value: 'dob', label: 'Date of birth' },
-    { value: 'custom gender', label: 'Gender' }
+    { value: 'custom gender', label: 'Gender(Origin)' },
+    { value: 'gender_long', label: 'Gender(Male/Female)' },
+    { value: 'gender_short', label: 'Gender(M/F)' }
   ]
 
   @Input()
