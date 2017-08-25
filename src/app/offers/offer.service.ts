@@ -2,11 +2,12 @@ import { Injectable } from '@angular/core';
 import { Offer } from './offer';
 import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class OfferService {
     //private offersUrl = '/api/offers';
-    private offersUrl = 'http://localhost:8080/api/offers';
+    private offersUrl = environment.serverUrl + 'api/offers';
 
     constructor (private http: Http) {}
 

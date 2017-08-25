@@ -13,7 +13,7 @@ import { CfieldService } from '../../cfields/cfield.service';
 export class OfferDetailsComponent {
   cfields: Cfield[]
 
-  types =  [ { value:'', label: '' }, { value:'radio', label:'Radio' }, { value:'select', label:'Drop Down' } ]
+  types =  [ { value:'', label: '' }, { value:'radio', label:'Radio' }, { value:'select', label:'Drop Down' }, { value:'checkbox', label: 'Check Box' } ]
 
   preset_types = [
     { value: 'name_first', label: 'First Name' },
@@ -56,7 +56,7 @@ export class OfferDetailsComponent {
   }
 
   addPreQstValue() {
-    const value = { value: '', label: '' };
+    const value = { value: '', label: '', primary: false };
     this.offer.preqst.values.push(value);
   }
 

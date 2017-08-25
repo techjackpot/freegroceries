@@ -23,11 +23,12 @@ export class Offer {
     type: string;
     key: string;
     description: string;
-    primaryValue: string;
+    // primaryValue: Array<string>;
     values: [
       {
         value: string;
         label: string;
+        primary: boolean;
       }
     ]
   };

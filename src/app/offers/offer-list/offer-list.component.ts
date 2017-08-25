@@ -67,8 +67,8 @@ export class OfferListComponent implements OnInit {
               description: '',
               type: '',
               key: '',
-              primaryValue: '',
-              values: [ { value: '', label: '' }]
+              // primaryValue: '',
+              values: [ { value: '', label: '', primary: false }]
             };
           }
           if (!offer.presets) {
@@ -121,9 +121,9 @@ export class OfferListComponent implements OnInit {
         type: '',
         key: '',
         description: '',
-        primaryValue: '',
+        // primaryValue: '',
         values: [
-          { value: '', label: '' }
+          { value: '', label: '', primary: false }
         ]
       },
       presets: [],

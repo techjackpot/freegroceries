@@ -128,7 +128,7 @@
                 <div class="col-xs-5">
                   <div class="input-group">
                     <span class="input-group-addon">
-                      <input type="radio" aria-label="..." name="offer-preqst-primaryValue" [(ngModel)]="offer.preqst.primaryValue" [value]="offer.preqst.values[i].value">
+                      <input type="checkbox" aria-label="..." name="offer-preqst-values{{i}}-primary" [(ngModel)]="offer.preqst.values[i].primary" [value]="offer.preqst.values[i].value">
                     </span>
                     <input type="text" class="form-control" name="offer-preqst-values{{i}}-value" aria-label="..." [(ngModel)]="offer.preqst.values[i].value" placeholder="Value ..." />
                   </div>

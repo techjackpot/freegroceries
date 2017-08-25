@@ -2,11 +2,12 @@ import { Injectable } from '@angular/core';
 import { Cfield } from './cfield';
 import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class CfieldService {
-    //private cfieldsUrl = '/api/cfields';
-    private cfieldsUrl = 'http://localhost:8080/api/cfields';
+
+    private cfieldsUrl = environment.serverUrl + 'api/cfields';
 
     constructor (private http: Http) {}
 
