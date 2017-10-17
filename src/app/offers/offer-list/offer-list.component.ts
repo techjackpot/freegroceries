@@ -39,6 +39,14 @@ export class OfferListComponent implements OnInit {
                 use: false,
                 low: null,
                 high: null
+              },
+              check_postcode: {
+                use: false,
+                postcodes: ''
+              },
+              check_state: {
+                use: false,
+                states: ''
               }
             }
           } else {
@@ -61,6 +69,18 @@ export class OfferListComponent implements OnInit {
                 high: null
           	  }
           	}
+            if (!offer.checks.check_postcode) {
+              offer.checks.check_postcode = {
+                use: false,
+                postcodes: ''
+              }
+            }
+            if (!offer.checks.check_state) {
+              offer.checks.check_state = {
+                use: false,
+                states: ''
+              }
+            }
           }
           if (!offer.preqst) {
             offer.preqst = {
@@ -115,6 +135,14 @@ export class OfferListComponent implements OnInit {
           use: false,
           low: null,
           high: null
+        },
+        check_postcode: {
+          use: false,
+          postcodes: ''
+        },
+        check_state: {
+          use: false,
+          states: ''
         }
       },
       preqst: {

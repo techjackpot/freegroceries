@@ -98,6 +98,38 @@
           </div>
         </div>
       </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" value="true" name="offer-checks-check_postcode-use" [(ngModel)]="offer.checks.check_postcode.use">
+              Check Postcode
+            </label>
+          </div>
+        </div>
+        <div class="panel-body" *ngIf="offer.checks.check_postcode.use" >
+          <div class="radio">
+            <label>Postcodes separated by comma</label>
+            <textarea name="offer-checks-check_postcode-postcodes" [(ngModel)]="offer.checks.check_postcode.postcodes"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" value="true" name="offer-checks-check_state-use" [(ngModel)]="offer.checks.check_state.use">
+              Check State
+            </label>
+          </div>
+        </div>
+        <div class="panel-body" *ngIf="offer.checks.check_state.use" >
+          <div class="radio">
+            <label>State codes separated by comma</label>
+            <textarea name="offer-checks-check_state-states" [(ngModel)]="offer.checks.check_state.states"></textarea>
+          </div>
+        </div>
+      </div>
     </div>
 
     <label class="text-danger">Custom Pre-Qualified Question</label>

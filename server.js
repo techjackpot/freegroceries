@@ -20,6 +20,7 @@ app.use(express.static(distDir));
 var db;
 
 // Connect to the database before starting the application server.
+// mongodb.MongoClient.connect('mongodb://freegroceries:thisisasecretorisit@aws-us-east-1-portal.27.dblayer.com:23227,aws-us-east-1-portal.28.dblayer.com:23227/freegroceries?ssl=true', function (err, database) {
 mongodb.MongoClient.connect('mongodb://localhost:27017/freegroceries', function (err, database) {
   if (err) {
     console.log(err);
